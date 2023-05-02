@@ -17,7 +17,7 @@ def get_bus():
   except Exception as ex:
       return jsonify({'message':str(ex)}),500
 
-@main.route('/time') 
+@main.route('/time')
 def get_bus_time():
   while True:
     try:
@@ -28,5 +28,5 @@ def get_bus_time():
         return jsonify({}), 404
     except Exception as ex:
       return jsonify({'message':str(ex)}),500
-    sleep(0.1)
+sleep(0.1)
 
