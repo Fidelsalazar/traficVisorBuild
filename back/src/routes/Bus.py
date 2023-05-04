@@ -12,7 +12,7 @@ main = Blueprint('bus_print', __name__)
 @main.route('/')
 def get_bus():
   try:
-    buss = BusModel().get_bus()
+    buss = BusModel().get_bus_time()
     return jsonify(buss)
   except Exception as ex:
       return jsonify({'message':str(ex)}),500
