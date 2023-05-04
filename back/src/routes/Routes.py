@@ -1,3 +1,4 @@
+import json
 from flask import  Blueprint, jsonify,request
 import uuid
 #Entities
@@ -37,6 +38,27 @@ def add_points():
         return jsonify({
           'status':'ok'
         })
+    else:
+      return jsonify({'message':"Error on insert"}),500
+  except Exception as ex:
+    return jsonify({'message': str(ex) }),500
+
+@main.route('/get', methods=['POST'])
+def get_busline_points():
+  try:
+    print(request.json)
+    data = request.get_json()
+    search = data['search']
+    print(search)
+
+    if 'search' not in data:
+      return jsonify({'message': 'Search key not found in request JSON'}), 400
+
+    datareturn= PointsModel.get_busroute(search)
+    print(datareturn.response)
+
+    if datareturn is not None :
+      return datareturn
     else:
       return jsonify({'message':"Error on insert"}),500
   except Exception as ex:

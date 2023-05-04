@@ -11,3 +11,15 @@ class Points():
       'lat':self.lat,
       'lon':self.lon,
     }
+
+class GetPoints():
+
+  def __init__(self, latitud=None, longitud=None):
+    self.lat = latitud
+    self.lon = longitud
+
+  def to_JSON(self):
+    return{
+      'latitud': self.lat,
+      'longitud': self.lon,
+    }
