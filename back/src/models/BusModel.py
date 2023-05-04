@@ -34,7 +34,7 @@ class BusModel():
       buslist=[]
 
       with connection.cursor() as cursor:
-        cursor.execute("SELECT bus_id, bus_line, lat, lon, velocity FROM positionbus WERE datetime = clock_timestamp()")
+        cursor.execute("SELECT bus_id, bus_line, lat, lon, velocity FROM positionbus WHERE datetime = clock_timestamp()")
         resultset=cursor.fetchall()
 
         for row in resultset:
