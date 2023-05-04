@@ -21,7 +21,7 @@ def get_bus():
 def get_bus_time():
   while True:
     try:
-      buss = BusModel().get_bus()
+      buss = BusModel().get_bus_rtime()
       if buss != None:
         return jsonify(buss)
       else:
